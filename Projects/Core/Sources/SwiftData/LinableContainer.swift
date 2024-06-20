@@ -9,8 +9,6 @@
 import Foundation
 import SwiftData
 
-
-
 // MARK: 컨테이너 호출 시 Cannot use staged migration with an unknown model version 에러 발생
 
 public typealias TeamV1 = LinableSchemaV1.Team
@@ -20,18 +18,42 @@ public typealias TeamPlayerV1 = LinableSchemaV1.TeamPlayer
 
 @MainActor
 public let linableContainer: ModelContainer = {
-    do {
-        let schema = Schema([TeamV1.self, LineupV1.self, PlayerV1.self, TeamPlayerV1.self])
-        let configuration = ModelConfiguration()
-        let container = try ModelContainer(for: schema,
-                                           configurations: [configuration])
-        let context = container.mainContext
-        if try context.fetch(FetchDescriptor<TeamV1>()).isEmpty {
-            let team = InitLinable.makeTheFirstTeam()
-            container.mainContext.insert(team)
+  do {
+    let schema = Schema(
+      [
+        TeamV1.self,
+        LineupV1.self,
+        PlayerV1.self,
+        TeamPlayerV1.self
+      ]
+    )
+    let configuration = ModelConfiguration()
+    let container = try ModelContainer(
+      for: schema,
+      configurations: [configuration]
+    )
+    let context = container.mainContext
+    let existTeam = try context.fetch(
+      FetchDescriptor<TeamV1>()
+    )
+    if existTeam.isEmpty {
+      let team = InitLinable.makeTheFirstTeam()
+      container.mainContext.insert(
+        team
+      )
+    } else if existTeam.count > 0 {
+      existTeam.forEach { team in
+        if team.lineup.count == 3 {
+          team.lineup.append(
+            InitLinable.makeAdditionalLineup()
+          )
         }
-        return container
-    } catch {
-        fatalError(error.localizedDescription)
+      }
     }
+    return container
+  } catch {
+    fatalError(
+      error.localizedDescription
+    )
+  }
 }()
