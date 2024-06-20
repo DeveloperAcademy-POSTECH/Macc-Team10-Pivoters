@@ -11,7 +11,7 @@ import ProjectDescriptionHelpers
 let moduleName = "Feature"
 
 let project = Project.makeModule(name: moduleName,
-                                 platform: .iOS,
+                                 destinations: .iOS,
                                  product: .staticFramework,
                                  bundleId: "Feature",
                                  dependencies: [
