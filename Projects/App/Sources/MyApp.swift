@@ -16,16 +16,10 @@ import Domain
 
 @main
 struct MyApp: App {
-
-//    init() {
-//        _ = AppEnvironment(modelContext: modelContainer.mainContext)
-//    }
-
-    var body: some Scene {
-        WindowGroup {
-            MainView(modelContext: linableContainer.mainContext)
-                .modelContext(linableContainer.mainContext)
-//            TempView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      MainView(modelContext: linableContainer.mainContext)
+        .modelContext(linableContainer.mainContext)
     }
+  }
 }

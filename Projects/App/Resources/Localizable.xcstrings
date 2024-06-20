@@ -250,6 +250,23 @@
         }
       }
     },
+    "Lineup 4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lineup 4"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4번 라인업"
+          }
+        }
+      }
+    },
     "Lineup Name" : {
       "extractionState" : "manual",
       "localizations" : {
