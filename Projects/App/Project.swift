@@ -24,7 +24,7 @@ let infoPlist: [String: Plist.Value] = [
 ]
 
 let project = Project.makeModule(name: moduleName,
-                                 platform: .iOS,
+                                 destinations: .iOS,
                                  product: .app,
                                  bundleId: "app.linable",
                                  infoPlist: .extendingDefault(with: infoPlist),
