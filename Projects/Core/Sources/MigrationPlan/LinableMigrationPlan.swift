@@ -11,15 +11,20 @@ import SwiftData
 
 enum LinableMigrationPlan: SchemaMigrationPlan {
 
-    static var schemas: [VersionedSchema.Type] {
-        [LinableSchemaV1.self, LinableSchemaV2.self]
-    }
+  static var schemas: [VersionedSchema.Type] {
+    [
+      LinableSchemaV1.self,
+      LinableSchemaV2.self
+    ]
+  }
 
+  static var stages: [MigrationStage] {
+    [migrateV1toV2]
+  }
 
-    static var stages: [MigrationStage] {
-        [migrateV1toV2]
-    }
-
-    static let migrateV1toV2 = MigrationStage.custom(fromVersion: LinableSchemaV1.self, toVersion: LinableSchemaV2.self, willMigrate: nil) { context in
-    }
+  static let migrateV1toV2 = MigrationStage.custom(
+    fromVersion: LinableSchemaV1.self,
+    toVersion: LinableSchemaV2.self,
+    willMigrate: nil
+  ) { context in }
 }
