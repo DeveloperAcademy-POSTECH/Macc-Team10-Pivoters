@@ -11,7 +11,7 @@ import ProjectDescriptionHelpers
 private let moduleName = "Common"
 
 let project = Project.makeModule(name: moduleName,
-                                 destinations: .iOS,
+                                 destinations: [.iPhone],
                                  product: .staticFramework,
                                  bundleId: "Common",
                                  resources: ["Resources/**"],
