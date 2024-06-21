@@ -11,7 +11,7 @@ import ProjectDescriptionHelpers
 private let moduleName = "Data"
 
 let project = Project.makeModule(name: moduleName,
-                                 destinations: .iOS,
+                                 destinations: [.iPhone],
                                  product: .staticFramework,
                                  bundleId: "Data",
                                  dependencies: [

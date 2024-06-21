@@ -11,7 +11,7 @@ import ProjectDescriptionHelpers
 private let moduleName = "Domain"
 
 let project = Project.makeModule(name: moduleName,
-                                 destinations: .iOS,
+                                 destinations: [.iPhone],
                                  product: .staticFramework,
                                  bundleId: "Domain",
                                  dependencies: [.Project.Core])

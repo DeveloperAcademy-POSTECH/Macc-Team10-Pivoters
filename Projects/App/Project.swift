@@ -11,7 +11,7 @@ import ProjectDescriptionHelpers
 private let moduleName = "App"
 
 let infoPlist: [String: Plist.Value] = [
-    "CFBundleShortVersionString": "1.1.0",
+    "CFBundleShortVersionString": "1.2.0",
     "CFBundleVersion": "1",
     "CFBundleDisplayName": "Linable",
     "UIMainStoryboardFile": "",
@@ -24,7 +24,7 @@ let infoPlist: [String: Plist.Value] = [
 ]
 
 let project = Project.makeModule(name: moduleName,
-                                 destinations: .iOS,
+                                 destinations: [.iPhone],
                                  product: .app,
                                  bundleId: "app.linable",
                                  infoPlist: .extendingDefault(with: infoPlist),

@@ -30,7 +30,7 @@ extension Project {
       sources: sources,
       resources: resources,
       entitlements: entitlements,
-      scripts: [.SwiftLintString],
+//      scripts: [.SwiftLintString],
       dependencies: dependencies
     )
 
