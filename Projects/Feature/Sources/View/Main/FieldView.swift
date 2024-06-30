@@ -96,7 +96,7 @@ struct FieldView: View {
                                 accumulatedOffsetHeight > 0 ?
                                 min(accumulatedOffsetHeight, 120): max(accumulatedOffsetHeight, -110)
                             }:
-                            noneGesture
+                            nil
 
                     )
                     .onTapGesture {
